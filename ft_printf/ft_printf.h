@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:02:09 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/05 00:22:30 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/05 00:56:01 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_printhex(unsigned long long n, char c);
 int		ft_printchar(char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
+size_t	ft_strlen(const char *str);
 
 #endif
