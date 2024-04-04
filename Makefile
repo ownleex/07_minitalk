@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 14:16:43 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/04/05 00:45:26 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/04/05 01:31:45 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ $(NAME_C): 	$(OBJS_C)
 			$(CC) $(CFLAGS) $(OBJS_C) -o $(NAME_C) $(HEADERS) $(PRINTF)
 
 $(NAME_S): 	$(OBJS_S)
-			@make -C ft_printf
 			$(CC) $(CFLAGS) $(OBJS_S) -o $(NAME_S) $(HEADERS) $(PRINTF)
 
 %.o: 		%.c

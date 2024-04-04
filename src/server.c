@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/05 00:57:30 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/05 01:11:39 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	(void)argv;
 	if (argc != 1)
 	{
-        write(2, "ERROR\n", 6);
+		write(2, "ERROR\n", 6);
 		return (1);
 	}
 	pid = getpid();
