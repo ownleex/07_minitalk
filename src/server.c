@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/04 21:35:20 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/05 00:39:27 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_btoa(int sig)
 	bit++;
 	if (bit == 8)
 	{
-		printf("%c", i);
+		ft_printf("%c", i);
 		bit = 0;
 		i = 0;
 	}
