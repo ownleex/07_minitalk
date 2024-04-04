@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 14:16:43 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/04/04 19:05:36 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/04/04 23:06:30 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,13 @@ NAME_S = server
 SRC_C = client.c
 SRC_S = server.c
 
-PATH_SRC	=	src/
 SRCS_C		=	$(addprefix $(PATH_SRC), $(SRC_C))
 SRCS_S		=	$(addprefix $(PATH_SRC), $(SRC_S))
+
 OBJS_C		=	$(SRCS_C:.c=.o)
 OBJS_S		=	$(SRCS_S:.c=.o)
+
+PATH_SRC	=	src/
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 HEADERS		=	-I./include
