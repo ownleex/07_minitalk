@@ -6,25 +6,24 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/05 01:11:39 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/06 00:07:45 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+t_signal_data	g_signal = {0, 0};
+
 void	ft_btoa(int sig)
 {
-	static int	bit;
-	static int	i;
-
 	if (sig == SIGUSR1)
-		i |= (0x01 << bit);
-	bit++;
-	if (bit == 8)
+		g_signal.character |= (0x01 << g_signal.bit);
+	g_signal.bit++;
+	if (g_signal.bit == 8)
 	{
-		ft_printf("%c", i);
-		bit = 0;
-		i = 0;
+		ft_printf("%c", g_signal.character);
+		g_signal.bit = 0;
+		g_signal.character = 0;
 	}
 }
 
