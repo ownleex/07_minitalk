@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/06 00:18:49 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/06 03:15:30 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ void	ft_btoa(int sig)
 {
 	static int	bit;
 	static int	i;
+	char		c;
 
 	if (sig == SIGUSR1)
 		i |= (0x01 << bit);
 	bit++;
 	if (bit == 8)
 	{
-		ft_printf("%c", i);
+		c = (char)i; // Cast i en char
+		write(1, &c, 1);
+		//ft_printf("%c", i);
 		bit = 0;
 		i = 0;
 	}
