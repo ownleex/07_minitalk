@@ -6,13 +6,19 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:36 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/10 23:23:06 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/11 00:00:48 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
 
-int	ft_atoi(const char *str)
+static void	confirm_msg(int signal)
+{
+	if (signal == SIGUSR2)
+		ft_printf("message recieved\n");
+}
+
+static int	ft_atoi(const char *str)
 {
 	int	result;
 	int	sign;
@@ -38,49 +44,43 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-void	signal_confirmation(int sig)
+static void	ft_atob(int pid, char c)
 {
-	(void)sig;
-	ft_printf("Message reçu par le serveur.\n");
-	exit(0);
-}
+	int	bit;
 
-void	send_char(int pid, char c)
-{
-	int bit = 7;
-	while (bit >= 0)
+	bit = 0;
+	while (bit < 8)
 	{
-		if ((c >> bit) & 1)
+		if ((c & (0x01 << bit)))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
-		bit--;
-	}
-}
-
-void	send_message(int pid, char *message)
-{
-	while (*message)
-	{
-		send_char(pid, *message);
-		message++;
+		usleep(20);
+		bit++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	int pid;
+	int	pid;
+	int	i;
 
-	if (argc != 3)
+	i = 0;
+	if (argc == 3)
 	{
-		ft_printf("Usage: %s <PID> <Message>\n", argv[0]);
+		pid = ft_atoi(argv[1]);
+		while (argv[2][i] != '\0')
+		{
+			ft_atob(pid, argv[2][i]);
+			i++;
+		}
+		signal(SIGUSR2, confirm_msg);
+		ft_atob(pid, '\0');
+	}
+	else
+	{
+		ft_printf("Error\n");
 		return (1);
 	}
-	signal(SIGUSR2, signal_confirmation);
-	pid = ft_atoi(argv[1]);
-	send_message(pid, argv[2]);
-	pause();
 	return (0);
 }
-

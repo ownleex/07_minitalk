@@ -6,13 +6,13 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:47 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/10 18:35:16 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/10 23:59:49 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	ft_atoi(const char *str)
+static int	ft_atoi(const char *str)
 {
 	int	result;
 	int	sign;
@@ -38,7 +38,7 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-void	ft_atob(int pid, char c)
+static void	ft_atob(int pid, char c)
 {
 	int	bit;
 

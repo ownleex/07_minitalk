@@ -6,43 +6,52 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/10 23:27:48 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/11 00:48:29 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
-#include <cstddef>
 
-static void print_character(int sig, siginfo_t *info, void *context)
+void	ft_btoa(int sig, siginfo_t *info, void *context)
 {
-    static int  bit = 0;
-    static char character = 0;
+	static int	bit;
+	static int	i;
 
-    (void)context;
-    if (sig == SIGUSR1)
-        character |= (1 << bit);
-    bit++;
-    if (bit == 8)
-    {
-        ft_printf("%c", character);
-        bit = 0;
-        character = 0;
-        kill(info->si_pid, SIGUSR2); // Envoyer la confirmation au client
-    }
+	(void)context;
+	if (sig == SIGUSR1)
+		i |= (0x01 << bit);
+	bit++;
+	if (bit == 8)
+	{
+		if (i == 0)
+			kill(info->si_pid, SIGUSR2);
+		ft_printf("%c", i);
+		bit = 0;
+		i = 0;
+	}
 }
 
-int main(void)
+int	main(int argc, char **argv)
 {
-    struct sigaction sa;
+	int					pid;
+	struct sigaction	act;
 
-    sa.sa_flags = SA_SIGINFO;
-    sa.sa_sigaction = print_character;
-    sigemptyset(&sa.sa_mask);
-    sigaction(SIGUSR1, &sa, NULL);
-    sigaction(SIGUSR2, &sa, NULL);
-
-    ft_printf("PID du serveur: %d\n", getpid());
-    while (1)
-        pause();
-    return (0);
+	(void)argv;
+	if (argc != 1)
+	{
+		write(2, "ERROR\n", 6);
+		return (1);
+	}
+	pid = getpid();
+	ft_printf("%d\n", pid);
+	act.sa_sigaction = ft_btoa;
+	sigemptyset(&act.sa_mask);
+	act.sa_flags = 0;
+	while (argc == 1)
+	{
+		sigaction(SIGUSR1, &act, NULL);
+		sigaction(SIGUSR2, &act, NULL);
+		pause();
+	}
+	return (0);
 }
