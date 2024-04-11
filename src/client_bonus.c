@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:36 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/11 21:53:47 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/11 22:09:53 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	ft_atob(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(900);
+		usleep(30);
 		bit++;
 	}
 }
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 		ft_atob(pid, '\n');
 		signal(SIGUSR2, confirm_msg);
 		ft_atob(pid, '\0');
-		usleep(9000);
+		usleep(90);
 	}
 	else
 	{
