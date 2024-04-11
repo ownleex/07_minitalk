@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/11 01:26:45 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:27:36 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ int	main(int argc, char **argv)
 		write(2, "ERROR\n", 6);
 		return (1);
 	}
-	signal(SIGUSR1, ft_btoa);
-	signal(SIGUSR2, ft_btoa);
 	pid = getpid();
 	ft_printf("PID : %d\n\n", pid);
+	signal(SIGUSR1, ft_btoa);
+	signal(SIGUSR2, ft_btoa);
 	while (argc == 1)
 		pause ();
 	return (0);
