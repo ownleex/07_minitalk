@@ -53,6 +53,8 @@ dkms.conf
 
 client
 server
+client_bonus
+server_bonus
 .DS_Store
 .vscode
 settings.json

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:47 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/10 23:59:49 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/11 20:36:36 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 			ft_atob(pid, argv[2][i]);
 			i++;
 		}
+		ft_atob(pid, '\n');
 	}
 	else
 	{
