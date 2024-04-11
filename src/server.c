@@ -6,13 +6,13 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/10 19:18:58 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/11 01:26:45 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_btoa(int sig)
+static void	ft_btoa(int sig)
 {
 	static int	bit;
 	static int	i;

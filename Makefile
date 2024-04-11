@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 14:16:43 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/04/10 22:29:32 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/04/11 01:38:20 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,12 @@ OBJS_S				=	$(SRCS_S:.c=.o)
 OBJS_BONUS_C		=	$(SRCS_BONUS_C:.c=.o)
 OBJS_BONUS_S		=	$(SRCS_BONUS_S:.c=.o)
 
-PATH_SRC	=	src/
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
-HEADERS		=	-I./include
-PRINTF		=	ft_printf/libftprintf.a
-RM			= 	rm -f
+PATH_SRC			=	src/
+CC					=	cc
+CFLAGS				=	-Wall -Wextra -Werror
+HEADERS				=	-I./include
+PRINTF				=	ft_printf/libftprintf.a
+RM					= 	rm -f
 
 all:		$(NAME_C) $(NAME_S)
 
