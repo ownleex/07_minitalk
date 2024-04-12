@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/12 00:38:43 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/12 03:55:29 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 static void	ft_btoa(int sig, siginfo_t *info, void *context)
 {
 	static int	bit;
-	static int	i;
+	static int	c;
 
 	(void)context;
 	if (sig == SIGUSR1)
-		i |= (0x01 << bit);
+		c |= (0x01 << bit);
 	bit++;
 	if (bit == 8)
 	{
-		if (i == 0)
+		if (c == '\0')
 			kill(info->si_pid, SIGUSR2);
-		ft_printf("%c", i);
+		ft_printf("%c", c);
 		bit = 0;
-		i = 0;
+		c = 0;
 	}
 }
 
 int	main(int argc, char **argv)
 {
 	int					pid;
-	struct sigaction	act;
+	struct sigaction	sa;
 
 	(void)argv;
 	if (argc != 1)
@@ -44,11 +44,11 @@ int	main(int argc, char **argv)
 	}
 	pid = getpid();
 	ft_printf("%d\n", pid);
-	act.sa_sigaction = ft_btoa;
-	sigemptyset(&act.sa_mask);
-	act.sa_flags = SA_SIGINFO;
-	sigaction(SIGUSR1, &act, NULL);
-	sigaction(SIGUSR2, &act, NULL);
+	sa.sa_sigaction = ft_btoa;
+	sigemptyset(&sa.sa_mask);
+	sa.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 	while (argc == 1)
 		pause();
 	return (0);
