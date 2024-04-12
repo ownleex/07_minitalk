@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:36 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/12 22:35:42 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/12 22:41:01 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_printf("Error\n");
+		write(2, "ERROR\n", 6);
 		return (1);
 	}
 	return (0);
