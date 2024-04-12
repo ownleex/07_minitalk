@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/12 22:43:50 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/12 22:58:16 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_btoa(int sig, siginfo_t *info, void *context)
 	static int	bit;
 	static int	c;
 	static char	buffer[BUFFER_SIZE];
-	static int	index = 0;
+	static int	index;
 
 	(void)context;
 	if (sig == SIGUSR1)
