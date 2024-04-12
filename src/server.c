@@ -6,15 +6,11 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/12 22:02:42 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/12 22:09:51 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include <stdio.h>
-
-#define BUFFER_SIZE 10000
+#include "../include/minitalk.h"
 
 static void	ft_btoa(int sig)
 {
