@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:36 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/12 22:54:55 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/12 23:56:20 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	confirm_msg(int signal)
 {
 	if (signal == SIGUSR2)
-		ft_printf("message recieved\n");
+		ft_printf("\nmessage recieved\n\n");
 }
 
 static int	ft_atoi(const char *str)
@@ -55,7 +55,7 @@ static void	ft_atob(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(30);
 		bit++;
 	}
 }
@@ -66,6 +66,7 @@ int	main(int argc, char **argv)
 	int	i;
 
 	i = 0;
+	signal(SIGUSR2, confirm_msg);
 	if (argc == 3)
 	{
 		pid = ft_atoi(argv[1]);
@@ -75,7 +76,6 @@ int	main(int argc, char **argv)
 			i++;
 		}
 		ft_atob(pid, '\n');
-		signal(SIGUSR2, confirm_msg);
 		ft_atob(pid, '\0');
 		usleep(90);
 	}

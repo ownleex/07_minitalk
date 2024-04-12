@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 01:21:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/12 22:58:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/13 00:07:36 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_btoa(int sig)
 		buffer[index++] = c;
 		if (c == '\0')
 		{
-			write(1, buffer, index - 1);
+			ft_printf("%s", buffer);
 			index = 0;
 		}
 		bit = 0;

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:59:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/12 22:58:16 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/12 23:18:41 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	ft_btoa(int sig, siginfo_t *info, void *context)
 		if (c == '\0')
 		{
 			kill(info->si_pid, SIGUSR2);
-			write(1, buffer, index - 1);
+			ft_printf("%s", buffer);
 			index = 0;
 		}
 		bit = 0;
